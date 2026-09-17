@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visi & Misi — PKBM Insan Kamil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#0F4D35;
+    --brand-dark:#0B3A28;
+    --brand-light:#E7F1EB;
+    --accent:#D6A33D;
+    --accent-dark:#B8862B;
+    --bg:#FBFAF6;
+    --card:#FFFFFF;
+    --text:#182620;
+    --text-muted:#5C6B62;
+    --border:#E7E5DA;
+    --shadow:0 10px 30px rgba(15,77,53,.08);
+    --shadow-sm:0 4px 14px rgba(15,77,53,.06);
+    --radius:18px;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    line-height:1.22;
+    margin:0;
+    color:var(--brand-dark);
+    letter-spacing:-.01em;
+  }
+  p{margin:0;}
+
+  .kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .kicker .no{
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;
+    color:var(--brand);background:var(--brand-light);border-radius:100px;padding:4px 11px;
+  }
+  .kicker .label{font-size:13.5px;font-weight:600;color:var(--text-muted);}
+
+  /* Breadcrumb */
+  .crumb{background:var(--brand-dark);padding:12px 0;}
+  .crumb .wrap{display:flex;align-items:center;gap:6px;font-size:13px;color:#CFE0D6;}
+  .crumb a{color:#CFE0D6;opacity:.9;}
+  .crumb a:hover{opacity:1;text-decoration:underline;}
+  .crumb .sep{opacity:.5;}
+  .crumb .current{color:#fff;font-weight:600;}
+
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(900px 420px at 85% -10%, rgba(214,163,61,.18), transparent 60%),
+      linear-gradient(160deg,var(--brand-dark) 0%,var(--brand) 60%,#176B47 130%);
+    color:#F4F0E2;
+    padding:60px 0 56px;
+    text-align:center;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:#0F2E20;background:var(--accent);padding:7px 14px 7px 10px;border-radius:100px;margin-bottom:18px;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:#0F2E20;}
+  .hero h1{color:#fff;font-size:clamp(28px,3.8vw,42px);max-width:20ch;margin:0 auto;}
+  .hero p.lede{font-size:16.5px;color:#DCE7DD;max-width:56ch;margin:16px auto 0;}
+
+  section{padding:60px 0;}
+  section.tint{background:var(--brand-light);}
+
+  .section-head{max-width:64ch;margin-bottom:30px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(22px,2.6vw,28px);}
+  .section-head p{margin-top:10px;color:var(--text-muted);font-size:15.5px;}
+
+  /* Visi statement card */
+  .visi-card{
+    background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    border-radius:24px;
+    padding:48px 44px;
+    color:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .visi-card::before{
+    content:"";position:absolute;inset:0;opacity:.1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='1'%3E%3Cpath d='M42 2 L82 42 L42 82 L2 42 Z'/%3E%3Ccircle cx='42' cy='42' r='20'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:84px 84px;
+  }
+  .visi-card .eyebrow{position:relative;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin-bottom:14px;}
+  .visi-card p{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:clamp(19px,2.6vw,25px);line-height:1.5;max-width:44ch;margin:0 auto;color:#fff;}
+
+  /* Misi list */
+  .misi-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+  .misi-item{
+    display:grid;grid-template-columns:52px 1fr;gap:20px;align-items:flex-start;
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:22px 24px;box-shadow:var(--shadow-sm);
+  }
+  .misi-item .num{
+    width:40px;height:40px;border-radius:12px;background:var(--brand-light);color:var(--brand);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;
+  }
+  .misi-item h3{font-size:15.5px;margin-bottom:5px;}
+  .misi-item p{font-size:14.3px;color:var(--text-muted);}
+
+  /* Tujuan strategis */
+  .card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .goal-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px 24px;box-shadow:var(--shadow-sm);
+  }
+  .goal-card b{
+    display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;color:var(--brand);margin-bottom:6px;
+  }
+  .goal-card span{font-size:13.5px;color:var(--text-muted);}
+
+  /* Nilai */
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .value-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px 24px;box-shadow:var(--shadow-sm);
+  }
+  .icon{
+    width:46px;height:46px;border-radius:13px;background:var(--brand-light);
+    display:flex;align-items:center;justify-content:center;color:var(--brand);margin-bottom:16px;
+  }
+  .value-card .tag{font-size:12.5px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;}
+  .value-card h3{font-size:18px;margin-bottom:8px;}
+  .value-card p{font-size:14.3px;color:var(--text-muted);}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+    border-radius:24px;padding:44px 40px;color:#F4F0E2;
+    display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;
+  }
+  .cta h2{color:#fff;font-size:24px;}
+  .cta p{color:#D8E4DB;margin-top:8px;font-size:14.5px;}
+  .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;
+    font-size:14.5px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;
+  }
+  .btn-primary{background:var(--accent);color:#0F2E20;}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.45);color:#fff;}
+
+  footer.note{padding:26px 0 44px;font-size:12.5px;color:var(--text-muted);text-align:center;}
+
+  @media (max-width:860px){
+    .card-grid-3{grid-template-columns:1fr;}
+    .value-grid{grid-template-columns:1fr;}
+    .visi-card{padding:36px 26px;}
+    .cta{grid-template-columns:1fr;padding:32px 24px;}
+    .cta-buttons{justify-content:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="https://www.pkbminsankamil.sch.id/">Beranda</a><span class="sep">/</span>
+    <a href="https://www.pkbminsankamil.sch.id/p/profil.html">Profil</a><span class="sep">/</span>
+    <span class="current">Visi &amp; Misi</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span>Arah &amp; Tujuan Lembaga</span>
+    <h1>Visi &amp; Misi PKBM Insan Kamil</h1>
+    <p class="lede">Landasan cita-cita dan langkah nyata kami dalam menyelenggarakan pendidikan nonformal bagi seluruh warga Sukamentri dan sekitarnya.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="label">Visi</span></div>
+    <div class="visi-card">
+      <div class="eyebrow">Visi Lembaga</div>
+      <p>Menjadi pusat kegiatan belajar masyarakat yang unggul dalam mewujudkan Insan Kamil — warga belajar yang cerdas berpikir, mandiri berikhtiar, dan luhur berakhlak — demi masyarakat Kabupaten Garut dan sekitarnya yang berilmu, berdaya, dan berakhlak mulia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="label">Misi</span></div>
+    <div class="section-head">
+      <h2>Enam langkah mewujudkan visi kami</h2>
+      <p>Setiap misi diterjemahkan menjadi program layanan yang berjalan setiap pekan di PKBM Insan Kamil.</p>
+    </div>
+    <ol class="misi-list">
+      <li class="misi-item">
+        <div class="num">1</div>
+        <div>
+          <h3>Pendidikan kesetaraan yang bermutu dan diakui resmi</h3>
+          <p>Menyelenggarakan Paket A, Paket B, dan Paket C dengan proses belajar yang terjangkau, sehingga ijazahnya berkedudukan hukum sama dengan sekolah formal.</p>
+        </div>
+      </li>
+      <li class="misi-item">
+        <div class="num">2</div>
+        <div>
+          <h3>Menuntaskan buta aksara di lingkungan sekitar</h3>
+          <p>Menjalankan program Keaksaraan Dasar dan Keaksaraan Usaha Mandiri yang memadukan literasi dengan pelatihan usaha bagi warga dewasa dan lansia.</p>
+        </div>
+      </li>
+      <li class="misi-item">
+        <div class="num">3</div>
+        <div>
+          <h3>Membekali kemandirian ekonomi warga belajar</h3>
+          <p>Menyediakan pelatihan keterampilan hidup dan kewirausahaan berbasis potensi lokal — menjahit, tata boga, tata rias, komputer dasar, dan pendampingan UMKM.</p>
+        </div>
+      </li>
+      <li class="misi-item">
+        <div class="num">4</div>
+        <div>
+          <h3>Menanamkan akhlak dan wawasan keislaman</h3>
+          <p>Mengintegrasikan kajian akidah, fikih, tahsin-tahfizh Al-Qur'an, dan mentoring akhlak ke dalam keseluruhan proses belajar mengajar.</p>
+        </div>
+      </li>
+      <li class="misi-item">
+        <div class="num">5</div>
+        <div>
+          <h3>Menyiapkan fondasi pendidikan sejak usia dini</h3>
+          <p>Menyelenggarakan layanan PAUD Insan Kamil untuk stimulasi tumbuh kembang dan kesiapan bersekolah anak usia 3–6 tahun.</p>
+        </div>
+      </li>
+      <li class="misi-item">
+        <div class="num">6</div>
+        <div>
+          <h3>Membuka akses layanan pendukung bagi warga belajar</h3>
+          <p>Menyediakan bimbingan konseling, taman baca masyarakat, informasi beasiswa, dan penyaluran kerja bagi warga belajar dan alumni.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="label">Target Strategis</span></div>
+    <div class="section-head">
+      <h2>Tolok ukur keberhasilan kami</h2>
+    </div>
+    <div class="card-grid-3">
+      <div class="goal-card"><b>97%</b><span>Target kelulusan ujian pendidikan kesetaraan setiap angkatan</span></div>
+      <div class="goal-card"><b>6</b><span>Program layanan terpadu berjalan aktif setiap pekan</span></div>
+      <div class="goal-card"><b>0</b><span>Batas usia maksimal untuk mengikuti program kesetaraan</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="kicker"><span class="no">04</span><span class="label">Nilai yang Kami Pegang</span></div>
+    <div class="section-head">
+      <h2>Tiga pilar yang menjiwai setiap misi</h2>
+      <p>Nilai Fikriyah, Jasadiyah, dan Ruhiyah menjadi ukuran bagi setiap keputusan dan layanan yang kami jalankan.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 6.5C10.5 5 8.3 4.3 5 4.5v13c3.3-.2 5.5.5 7 2 1.5-1.5 3.7-2.2 7-2v-13c-3.3-.2-5.5.5-7 2z"/><path d="M12 6.5v13"/></svg></div>
+        <div class="tag">Fikriyah</div>
+        <h3>Cerdas</h3>
+        <p>Berpikir jernih dan berilmu, diwujudkan lewat pendidikan kesetaraan dan keaksaraan yang bermutu.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c1-3.5 3.7-5.5 6.5-5.5s5.5 2 6.5 5.5"/></svg></div>
+        <div class="tag">Jasadiyah</div>
+        <h3>Mandiri</h3>
+        <p>Berdaya secara ekonomi lewat keterampilan hidup dan kewirausahaan berbasis potensi lokal.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.2-7-9.8A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7 3.2C19 15.8 12 20 12 20z"/></svg></div>
+        <div class="tag">Ruhiyah</div>
+        <h3>Berakhlak Mulia</h3>
+        <p>Jujur, disiplin, dan peduli sesama, ditanamkan lewat pembinaan keislaman yang menyatu dengan belajar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Ingin tahu lebih jauh tentang lembaga kami?</h2>
+        <p>Baca profil lengkap kami atau hubungi tim pendaftaran untuk berdiskusi langsung.</p>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="https://www.pkbminsankamil.sch.id/p/tentang-kami.html">Tentang kami</a>
+        <a class="btn btn-outline" href="https://www.pkbminsankamil.sch.id/p/kontak.html">Hubungi kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="note">
+  <div class="wrap">PKBM Insan Kamil · Sukamentri, Garut Kota — halaman ini dimuat dari GitHub dan ditampilkan melalui iframe.</div>
+</footer>
+
+<!-- ========================================================================
+CATATAN UNTUK PENGELOLA WEBSITE (hapus komentar ini bila sudah tidak perlu):
+
+Teks Visi, Misi, dan Target Strategis pada halaman ini disusun berdasarkan
+materi yang sudah ada di beranda situs (nama "Insan Kamil", tiga pilar,
+enam program, dan target 97% kelulusan). Karena halaman resmi Visi & Misi
+belum tersedia saat halaman ini dibuat, mohon tinjau kembali rumusan Visi
+dan Misi di atas bersama pengurus/yayasan sebelum dipublikasikan, dan
+sesuaikan bila lembaga sudah memiliki rumusan resmi yang berbeda.
+======================================================================== -->
+</body>
+</html>
